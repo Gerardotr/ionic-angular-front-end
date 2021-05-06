@@ -1,0 +1,7 @@
+{
+  "name": "pruebatecnica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
