@@ -1,0 +1,99 @@
+<div class="anuncio">
+
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img src="/assets/2.jpg">
+    </ion-avatar>
+    <ion-label>
+      <h3><strong>{{anuncio.usuario.nombre}}</strong></h3>
+      <h5>{{anuncio.usuario.email}}</h5>
+    </ion-label>
+  </ion-item>
+
+
+
+  <ion-slides pager="true" *ngIf="anuncio.imgs.length>1">
+    <ion-slide *ngFor="let img of anuncio.imgs" class="image-slide"
+      [style]="(img | imagen: anuncio.usuario._id) | domSanitizer">
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides *ngIf="anuncio.imgs.length === 1" [options]="slideOpt">
+    <ion-slide [style]="(anuncio.imgs[0] | imagen: anuncio.usuario._id) | domSanitizer" class="image-slide">
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-slides *ngIf="anuncio.imgs.length === 0" [options]="slideOpt">
+    <ion-slide
+      style="background-image: url('https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg');"
+      class="image-slide">
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <ion-item>
+    <ion-chip color="success">
+      <ion-label color="green">{{anuncio.moneda}} ${{anuncio.precio}}</ion-label>
+    </ion-chip>
+
+
+  </ion-item>
+
+  <ion-item>
+    <ion-item>
+      <ion-label>A/C</ion-label>
+      <ion-radio slot="start" value="anuncio.aireacondicionado"></ion-radio>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>S/P</ion-label>
+      <ion-radio slot="start" value="anuncio.seguridadprivada"></ion-radio>
+
+    </ion-item>
+  </ion-item>
+  <ion-item>
+    <ion-slides [options]="slideOptsChip">
+      <ion-slide>
+        <ion-chip>
+          <ion-icon name="water-outline"></ion-icon>
+          <ion-label color="secondary">Baños {{anuncio.cantidadBanos}}</ion-label>
+        </ion-chip>
+      </ion-slide>
+      <ion-slide>
+        <ion-chip>
+          <ion-icon name="bed-outline"></ion-icon>
+          <ion-label color="secondary">Habitaciones {{anuncio.cantidadHabitaciones}}</ion-label>
+        </ion-chip>
+      </ion-slide>
+      <ion-slide>
+        <ion-chip>
+          <ion-icon name="car-outline"></ion-icon>
+          <ion-label color="secondary">Estacionamientos {{anuncio.cantidadEstacionamientos}}</ion-label>
+        </ion-chip>
+      </ion-slide>
+    </ion-slides>
+  </ion-item>
+
+
+
+
+
+
+
+  <ion-item lines="none">
+
+    <ion-icon slot="end" name="bookmark"></ion-icon>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label text-wrap>
+      {{anuncio.descripcion}}
+    </ion-label>
+  </ion-item>
+
+</div>

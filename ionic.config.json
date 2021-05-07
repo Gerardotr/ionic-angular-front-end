@@ -1,7 +1,8 @@
 {
   "name": "pruebatecnica",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

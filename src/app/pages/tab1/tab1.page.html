@@ -1,0 +1,37 @@
+<ion-header [translucent]="true" no-border>
+  <ion-toolbar>
+    <ion-title>
+      Prueba-Tecnica
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()"
+                  color="danger">
+        <ion-icon slot="icon-only" name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+ <!--Refreshers-->
+ <ion-refresher  slot="fixed" (ionRefresh)="refresh($event)" >
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+   <!--Anuncios-->
+
+   <app-anuncios [anuncios] = "anuncios"></app-anuncios>
+
+
+
+  <!--InfiniteScroll-->
+
+  <ion-infinite-scroll [disabled] = "!online" threshold="150px" (ionInfinite)="siguientes($event)">
+    <ion-infinite-scroll-content
+      >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

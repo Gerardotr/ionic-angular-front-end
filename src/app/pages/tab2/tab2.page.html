@@ -1,0 +1,80 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+      Nuevo Anuncio
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="createAnuncio()" color="primary" [disabled]="anuncio.nombre.length < 1">
+        Crear anuncio
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+
+
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input  name="nombre" type="text"  [(ngModel)]="anuncio.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Moneda</ion-label>
+      <ion-input  name="moneda" type="text"  [(ngModel)]="anuncio.moneda"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input  name="precio" type="text"  [(ngModel)]="anuncio.precio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea   name="descripcion" type="text"  [(ngModel)]="anuncio.descripcion"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label  name="cantidadBanos" type="text"  position="floating">Número de baños</ion-label>
+      <ion-input [(ngModel)]="anuncio.cantidadBanos"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Número de Habitaciones</ion-label>
+      <ion-input  name="cantidadHabitaciones" type="text"  [(ngModel)]="anuncio.cantidadHabitaciones"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Número de estacinamientos</ion-label>
+      <ion-input  name="cantidadEstacionamientos" type="text"  [(ngModel)]="anuncio.cantidadEstacionamientos"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-button expand="full" shape="round">
+        <ion-icon slot="start" name="camera"></ion-icon>
+        Cámara
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button (click)="librery()" expand="full" shape="round">
+        <ion-icon slot="start" name="images"></ion-icon>
+        Galería
+      </ion-button>
+    </ion-col> 
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="3" *ngFor="let img of tempImgs">
+      <ion-card>
+        <img [src]="img">
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>
